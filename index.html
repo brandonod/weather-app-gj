@@ -4,39 +4,110 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>GJ Forecast Pro - Real-time Weather</title>
 </head>
 <body>
+    <div class="background-overlay"></div>
+    
     <div class="container">
-        <section>
+        <!-- Header Section -->
+        <header class="header">
             <div class="header__search">
-                <input type="search" placeholder="Grand Junction">
-                <input type="checkbox" class="measurement-toggle fahrenheit">
+                <div class="search-container">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="search" placeholder="Search location..." class="search-input">
+                </div>
+                <div class="toggle-container">
+                    <span class="toggle-label">°F</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" class="measurement-toggle">
+                        <span class="slider"></span>
+                    </label>
+                    <span class="toggle-label">°C</span>
+                </div>
             </div>
-        </section>
-        
+        </header>
+
+        <!-- Hero Section -->
         <section class="hero">
-            <h1>GJ Forecast Pro</h1>
-            <h2>Real-time weather updates for Grand Junction, Colorado</h2>
+            <div class="hero-content">
+                <h1 class="hero-title">GJ Forecast Pro</h1>
+                <p class="hero-subtitle">Real-time weather updates for Grand Junction, Colorado</p>
+                <div class="hero-accent"></div>
+            </div>
         </section>
 
-        <section class="weather-data">
-            <div class="weather-card">
-                <div class="weather-datas">
-                    <h4>City: <span id="city">Grand Junction</span></h4>
-                    <h4>Current Temp: <span id="city-temp"></span></h4>
-                    <h4>Weather: <span id="weather"></span></h4>
+        <!-- Weather Data Section -->
+        <section class="weather-section">
+            <div class="weather-main-card">
+                <div class="weather-primary">
+                    <div class="location-info">
+                        <h2 class="city-name" id="city">Grand Junction</h2>
+                        <p class="region">Colorado, USA</p>
+                    </div>
+                    <div class="temperature-display">
+                        <span class="current-temp" id="city-temp">--</span>
+                        <span class="temp-unit">°F</span>
+                    </div>
+                    <div class="weather-condition">
+                        <p class="condition-text" id="weather">Loading...</p>
+                    </div>
                 </div>
-                <div class="weather-img">
-                    <img src="">
+                <div class="weather-visual">
+                    <div class="weather-icon">
+                        <svg class="weather-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </div>
                 </div>
             </div>
-            <div class="micro-data">
-                <h4>Humidity: <span id="humidity"></span></h4>
-                <h4>Wind: <span id="wind"></span></h4>
+
+            <div class="weather-details">
+                <div class="detail-card">
+                    <div class="detail-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+                        </svg>
+                    </div>
+                    <div class="detail-content">
+                        <p class="detail-label">Humidity</p>
+                        <p class="detail-value" id="humidity">--%</p>
+                    </div>
+                </div>
+                
+                <div class="detail-card">
+                    <div class="detail-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path>
+                        </svg>
+                    </div>
+                    <div class="detail-content">
+                        <p class="detail-label">Wind Speed</p>
+                        <p class="detail-value" id="wind">-- mph</p>
+                    </div>
+                </div>
             </div>
         </section>
+
+        <!-- Loading Indicator -->
+        <div class="loading-indicator" id="loading">
+            <div class="spinner"></div>
+            <p>Loading weather data...</p>
+        </div>
     </div>
-<script src="script.js"></script>
+
+    <script src="script.js"></script>
 </body>
-</html>`
+</html>
